@@ -1,0 +1,10 @@
+
+.imagecontainer {
+    width: 175px; /* Set the width as per your requirement */
+    height: 250px; /* Fixed height for the container */
+    overflow: hidden; /* Hide any overflow content */
+    margin-bottom: 16px; /* Add margin between image containers if needed */
+  }
+  
+  /* Add additional styling as needed */
+  
