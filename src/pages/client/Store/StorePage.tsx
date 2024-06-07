@@ -59,10 +59,12 @@ const StorePage = () => {
     // setProducts(res?.data)
     // console.log(res.data);
   }
-  const { data, isLoading } = useSWR(
+  const { data,error, isLoading } = useSWR(
     "api/user/books",
     getAllBooks
   );
+  console.log(error,data);
+  
   const { data: ltbooksData } = useSWR(
     "/api/user/latest/books",latestBooks
   );
