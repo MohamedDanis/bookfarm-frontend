@@ -24,9 +24,8 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { useToast } from "@/components/ui/use-toast"
-import { deleteUser } from "@/api/admin/userRequests"
 import { Link } from "react-router-dom"
-import { deleteBook, returnBookUser } from "@/api/admin/BookRequests"
+import { deleteBook } from "@/api/admin/BookRequests"
 import { Switch } from "@/components/ui/switch"
 import { changeSale } from "@/api/admin/adminAuthRequest"
 // This type is used to define the shape of our data.

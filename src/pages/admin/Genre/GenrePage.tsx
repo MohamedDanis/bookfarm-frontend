@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Container from "@/components/ui/container";
-import AuthLayout from "@/components/layout/AuthLayout";
 import { toast } from "@/components/ui/use-toast";
 import {
   Table,
@@ -16,7 +15,6 @@ import { Skeleton } from "@/components/ui/skeleton"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -30,7 +28,6 @@ const genreSchema = z.object({
   name: z.string().min(2).max(50),
 });
 
-import { SampleForm } from "@/components/entry";
 import { Button } from "@/components/ui/button";
 import { createCategory, showCategories } from "@/api/admin/BookRequests";
 

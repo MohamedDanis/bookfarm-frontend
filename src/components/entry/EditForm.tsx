@@ -1,8 +1,3 @@
-"use client";
-interface BookFormProps {
-  onOpenChange: OnOpenChangeCallback;
-}
-type OnOpenChangeCallback = (newOpen: boolean) => void;
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -13,23 +8,16 @@ import "react-day-picker/dist/style.css";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+
 import { format } from "date-fns";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
-import axios from "axios";
+
 import { useEffect, useState } from "react";
 import {
   Command,
@@ -42,7 +30,6 @@ import {
   editBook,
   showCategories,
 } from "@/api/admin/BookRequests";
-import img from "next/img";
 import { Popover } from "@radix-ui/react-popover";
 import { PopoverContent, PopoverTrigger } from "../ui/popover";
 import { cn } from "@/lib/utils";
@@ -61,27 +48,27 @@ const css = `
   --rdp-selected-color: #fff; /* Color of selected day text */
 }
 `
-type bookDetailsProps = {
-  id: number;
-  title: string;
-  author: string | any;
-  genre: string;
-  bookcover: string;
-  description?: string;
-  availablility: string;
-  price?: number;
-  discount?: number;
-  language?: string;
-  dop?: string;
-  country?: string;
-};
-const MAX_FILE_SIZE = 500000;
-const ACCEPTED_img_TYPES = [
-  "img/jpeg",
-  "img/jpg",
-  "img/png",
-  "img/webp",
-];
+// type bookDetailsProps = {
+//   id: number;
+//   title: string;
+//   author: string | any;
+//   genre: string;
+//   bookcover: string;
+//   description?: string;
+//   availablility: string;
+//   price?: number;
+//   discount?: number;
+//   language?: string;
+//   dop?: string;
+//   country?: string;
+// };
+// const MAX_FILE_SIZE = 500000;
+// const ACCEPTED_img_TYPES = [
+//   "img/jpeg",
+//   "img/jpg",
+//   "img/png",
+//   "img/webp",
+// ];
 const accountFormSchema = z.object({
   title: z.string().min(5, "bookname should be atleast 5 characters"),
   author: z.string().min(5, "author name should be atleast 5 characters"),
@@ -105,7 +92,6 @@ type AccountFormValues = z.infer<typeof accountFormSchema>;
 
 export function EditForm({ bookdetails }: any) {
   const [isLoading, setIsLoading] = useState(false);
-  const [file, setFile] = useState<string>("");
   const [genre, setGenre] = useState([]);
 
   useEffect(() => {

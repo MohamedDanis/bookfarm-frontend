@@ -5,7 +5,6 @@ import { useToast } from "@/components/ui/use-toast"
 import {
   ColumnDef,
   ColumnFiltersState,
-  PaginationState,
   SortingState,
   VisibilityState,
   flexRender,
@@ -27,8 +26,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Modal } from "@/components/general";
 import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
 import { deleteBook, showBooks } from "@/api/admin/BookRequests";
 import { Button } from "@/components/ui/button";
@@ -53,7 +50,6 @@ import {
 } from "@/components/ui/table";
 import { Link } from "react-router-dom";
 import { changeSale } from "@/api/admin/adminAuthRequest";
-import useSWR from "swr";
 
 export type Payment = {
   _id: string;

@@ -2,13 +2,12 @@
 import { getOrders } from "@/api/admin/adminAuthRequest"
 import {  columns } from "./columns"
 import { DataTable } from "./data-table"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import useSWR from "swr"
 
 
 export default function Table() {
- const [orderdata,setOrderData] = useState<any>([]);
- const {data,error}=useSWR('/api/admin/orders',getOrders);
+ const {data}=useSWR('/api/admin/orders',getOrders);
  console.log(data);
   useEffect(() => {
     }, [data]);

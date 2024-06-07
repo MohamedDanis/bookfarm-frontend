@@ -3,7 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
-import { ArrowUpDown, MoreHorizontal } from "lucide-react"
+import { MoreHorizontal } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,7 +24,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { useToast } from "@/components/ui/use-toast"
-import { deleteUser } from "@/api/admin/userRequests"
+
 import { Link } from "react-router-dom"
 import { returnBookUser } from "@/api/admin/BookRequests"
 // This type is used to define the shape of our data.

@@ -1,8 +1,8 @@
 "use client"
-import React, { useLayoutEffect, useState } from 'react';
+import  { useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setAdmin } from '@/redux/userSlice';
+import { setAdmin } from '@/redux/adminSlice';
 import { adminDetails } from '@/api/admin/adminAuthRequest';
 import { Rings } from 'react-loader-spinner';
 

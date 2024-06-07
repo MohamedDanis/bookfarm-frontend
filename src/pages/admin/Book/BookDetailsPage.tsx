@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate,useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import { borrowers, showBookDetails } from '@/api/admin/BookRequests';
-import AuthLayout from '@/components/layout/AuthLayout';
 import Container from '@/components/ui/container';
 import Breadcrumb from '@/components/general/BreadCrump';
 import { BookHistory, BorrowersCard } from '@/container/admin';
@@ -15,7 +14,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Edit2, Edit2Icon } from 'lucide-react';
+import { Edit2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 type bookDetailsProps={
     _id:number,

@@ -7,7 +7,6 @@ import { AccordionTrigger, AccordionContent, AccordionItem, Accordion } from "@/
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
-import { CardContent, Card } from "@/components/ui/card"
 import useSWR from "swr"
 import { showCategories } from "@/api/admin/BookRequests"
 import { useState } from "react"
@@ -28,7 +27,7 @@ export function FilterComp({ onChange }: any) {
     maxPrice: '',
   });
   const [category, setCategory] = useState<any>();
-  console.log(filters);
+  console.log(filters,error,category);
   async function getData() {
     if (filters.category.length > 0) {
       onChange(filters);
@@ -42,15 +41,15 @@ export function FilterComp({ onChange }: any) {
   });
  
   const maxItemsToShow = 5;
-  async function updateCategoryFilter() {
-    console.log(category);
+  // async function updateCategoryFilter() {
+  //   console.log(category);
     
-    setFilters((f) => ({ ...f, category: [...f.category, category] }));
-    console.log(filters);
+  //   setFilters((f) => ({ ...f, category: [...f.category, category] }));
+  //   console.log(filters);
     
-    const res = await userApi.get('/books',{params:filters})
-    console.log(res);
-  }
+  //   const res = await userApi.get('/books',{params:filters})
+  //   console.log(res);
+  // }
 
   const handleGenre = (e: any) => {
     console.log(e);
@@ -92,7 +91,7 @@ export function FilterComp({ onChange }: any) {
                 <div className="grid gap-2">
                   {
                     data?.slice(0, showAllItems ? data.length : maxItemsToShow).map((genre:any,index:any)=>(
-                      <Label className="flex items-center gap-2 font-normal">
+                      <Label className="flex items-center gap-2 font-normal" key={index}>
                     <Checkbox id="category-electronics" onCheckedChange={()=>handleGenre(genre?.name) } />
                     {genre?.name}{"\n                              "}
                   </Label>

@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { borrowersHistory } from "@/api/admin/BookRequests";
-import { Skeleton } from "@/components/ui/skeleton";
+
 
 const BookHistory = ({ id }: any) => {
   console.log(id);

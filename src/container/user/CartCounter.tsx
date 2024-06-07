@@ -2,7 +2,7 @@
 import { decCart, incCart, showCart } from "@/api/admin/userRequests";
 import { setItems } from "@/redux/cartSlice";
 import { MinusIcon, PlusIcon } from "lucide-react";
-import React, { useState } from "react";
+import  { useState } from "react";
 import {useDispatch,useSelector} from 'react-redux'
 
 interface CartCounterProps {

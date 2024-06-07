@@ -2,7 +2,6 @@
 import React, { useRef } from "react";
 import classNames from "classnames";
 import {useLocation,Link} from "react-router-dom";
-import { defaultNavItems } from "./defaultNavItems";
 import { useOnClickOutside } from "usehooks-ts";
 import { ClipboardList, Ticket } from "lucide-react";
 // import { useParams,usePathname } from 'next/navigation'
@@ -22,7 +21,7 @@ type Props = {
   navItems?: NavItem[];
   setOpen(open: boolean): void;
 };
-const Sidebar = ({ open, navItems = defaultNavItems, setOpen }: Props) => {
+const Sidebar = ({ open, setOpen }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
   useOnClickOutside(ref, (e:any) => {
     if (ref.current && !ref.current.contains(e.target)) {
@@ -31,7 +30,7 @@ const Sidebar = ({ open, navItems = defaultNavItems, setOpen }: Props) => {
   });
   // const params = useParams()
   const location = useLocation();
-  const { hash, pathname, search } = location;
+  const {  pathname } = location;
   console.log(pathname?.includes('dashboard'));
   
   return (

@@ -29,13 +29,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
@@ -250,7 +243,7 @@ export function SampleForm({ onOpenChange }: BookFormProps) {
         <FormField
           control={form.control}
           name="bookcover"
-          render={({ field }) => (
+          render={() => (
             <FormItem className="w-1/2">
               <FormLabel>Upload Book Cover</FormLabel>
               <FormControl>

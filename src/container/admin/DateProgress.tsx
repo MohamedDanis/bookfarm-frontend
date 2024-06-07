@@ -1,5 +1,4 @@
 import { Progress } from "@/components/ui/progress"
-import React from 'react'
 
 const DateProgress = ({endDate}:any) => {
     function calculateProgressPercentage(remainingDays:any) {

@@ -1,4 +1,3 @@
-import axios from 'axios'
 import {userApi,adminApi} from '../../utils/ApiCalls'
 
 export const adminLogin = async(formData:any)=>{ 

@@ -18,29 +18,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  ArrowUpCircle,
-  CheckCircle2,
-  Circle,
-  HelpCircle,
-  LucideIcon,
-  XCircle,
-} from "lucide-react";
 
-import { cn } from "@/lib/utils";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -51,47 +30,46 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useEffect, useState } from "react";
-import { showUsers } from "@/api/admin/userRequests";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import {  useState } from "react";
+
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
-type Status = {
-  value: string
-  label: string
-  icon: LucideIcon
-}
+// type Status = {
+//   value: string
+//   label: string
+//   icon: LucideIcon
+// }
  
-const statuses: Status[] = [
-  {
-    value: "Ordered",
-    label: "Ordered",
-    icon: HelpCircle,
-  },
-  {
-    value: "Dispatching",
-    label: "Dispatching",
-    icon: Circle,
-  },
-  {
-    value: "In-transit",
-    label: "In-transit",
-    icon: ArrowUpCircle,
-  },
-  {
-    value: "Delivered",
-    label: "Delivered",
-    icon: CheckCircle2,
-  },
-  {
-    value: "canceled",
-    label: "Canceled",
-    icon: XCircle,
-  },
-]
+// const statuses: Status[] = [
+//   {
+//     value: "Ordered",
+//     label: "Ordered",
+//     icon: HelpCircle,
+//   },
+//   {
+//     value: "Dispatching",
+//     label: "Dispatching",
+//     icon: Circle,
+//   },
+//   {
+//     value: "In-transit",
+//     label: "In-transit",
+//     icon: ArrowUpCircle,
+//   },
+//   {
+//     value: "Delivered",
+//     label: "Delivered",
+//     icon: CheckCircle2,
+//   },
+//   {
+//     value: "canceled",
+//     label: "Canceled",
+//     icon: XCircle,
+//   },
+// ]
 export function DataTable<TData, TValue>({
   columns,
   data,
@@ -99,8 +77,7 @@ export function DataTable<TData, TValue>({
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [rowSelection, setRowSelection] = useState({});
-  const [open, setOpen] = useState(false);
-  const [selectedStatus, setSelectedStatus] = useState<any>(null);
+
   const table = useReactTable({
     data,
     columns,

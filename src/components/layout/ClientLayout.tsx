@@ -1,9 +1,9 @@
 import Container from "../ui/container";
 import { Button } from "../ui/button";
-import { Link, Outlet, useParams, useLocation } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import logo from "@/assets/imgs/logo-2.png";
 import { MainNav } from "../general";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { clientDetail, showCart } from "@/api/admin/userRequests";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "@/redux/userSlice";
@@ -14,7 +14,6 @@ import { UserAvatar } from "@/container/user";
 const ClientLayout = () => {
   const params = useParams();
   const [isLoading, setIsLoading] = useState(false);
-  const location = useLocation();
   const isAuth = useSelector((state: any) => state.auth.isAuthenticated);
   const cart = useSelector((state: any) => state.carts.products);
   const quantity = useSelector((state: any) => state.carts.quantity);
@@ -30,6 +29,8 @@ const ClientLayout = () => {
         const user = response;
         dispatch(setUser(user));
         setIsLoading(false);
+        console.log(isLoading);
+        
       }
       GetUser()
         if (cart.length === 0) {

@@ -1,15 +1,11 @@
-import React from "react";
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Mail, MapPin, Phone, UserCircle2 } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton"
-import { userDetailsProps } from "@/utils/types";
 
 const PersonalCard = ({userdata}:any) => {
     console.log(userdata);

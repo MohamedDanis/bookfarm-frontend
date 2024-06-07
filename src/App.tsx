@@ -1,4 +1,4 @@
-import {BrowserRouter,Routes,Route, Outlet, Router} from 'react-router-dom'
+import {Routes,Route} from 'react-router-dom'
 import { Toaster } from '@/components/ui/toaster'
 import { Provider } from "react-redux";
 import store from "./redux/store";

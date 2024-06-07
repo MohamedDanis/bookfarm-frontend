@@ -1,5 +1,5 @@
 // components/layout/Navbar.tsx
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
  import { Bars3Icon } from "@heroicons/react/24/outline";
  import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -25,6 +25,7 @@ const Navbar = (props: Props) => {
     if (!isAuth && token) {
       const GetUser = async () => {
         setIsLoading(true);
+        console.log(isLoading);
         const response = await adminDetails();
         console.log(response, 987656);
         const user = response;

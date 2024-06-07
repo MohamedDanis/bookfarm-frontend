@@ -1,6 +1,5 @@
 import Container from '@/components/ui/container'
 import { AddressForm } from '@/container/user'
-import React from 'react'
 import { useSelector } from 'react-redux'
 
 const CheckoutPage = () => {

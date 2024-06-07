@@ -1,8 +1,6 @@
 import Container from "@/components/ui/container";
-import { useState } from 'react';
 import { Scroller } from '@/components/general';
 import heroimg from '@/assets/imgs/ideogram.jpeg'
-import {BrowserRouter,Routes,Route, Outlet, Router} from 'react-router-dom'
 
 
 

@@ -1,13 +1,10 @@
-import React from "react";
 import {
   CalendarIcon,
-  FolderIcon,
   HomeIcon,
   UserGroupIcon,
   BookOpenIcon
 } from "@heroicons/react/24/outline";
 import { NavItem } from "./Sidebar2";
-import { CalendarCheck2Icon } from "lucide-react";
 
 export const defaultNavItems: NavItem[] = [
   {

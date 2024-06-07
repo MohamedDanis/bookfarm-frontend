@@ -5,11 +5,8 @@ import { UserNav } from "./components";
 import { useDispatch, useSelector } from 'react-redux';
 import { adminDetails } from '@/api/admin/adminAuthRequest';
 import { useEffect, useState } from "react";
-import { Menu } from "lucide-react";
-// import { ThemeToggle } from "../general";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import { log } from "console";
 type Props = {
   onMenuButtonClick(): void;
 };
@@ -25,7 +22,7 @@ const AdminHeader = (props: Props) => {
       console.log(2);
       
       const GetUser = async () => {
-        console.log(3);
+        console.log(isLoading);
         
         setIsLoading(true);
         const response = await adminDetails();
@@ -68,7 +65,7 @@ const AdminHeader = (props: Props) => {
           )  : (
             <nav className="flex gap-4 items-center">
             <Button asChild variant="ghost" className="">
-              <Link to="/login" className=" px-4 py-1 ">
+              <Link to="/login" className=" px-4 py-1">
                 Login
               </Link>
             </Button>

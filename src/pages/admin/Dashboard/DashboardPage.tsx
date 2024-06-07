@@ -12,17 +12,14 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import { Overview,RecentSales } from "@/container/admin/DashboardPage";
-import AuthLayout from "@/components/layout/AuthLayout"
 import { useEffect, useState } from "react";
 import { showSubscribedUsers, showUsers } from "@/api/admin/userRequests";
 import { showBooks } from "@/api/admin/BookRequests";
-import AdminLayout from "@/components/layout/Sidebar/AdminLayout";
 // const Sidebar = dynamic(()=> import('../../../components/layout/Sidebar/Sidebar2'),{ssr:false})
 
 
 export default function DashboardPage() {
   const [user,setUser]=useState()
-  const [showSidebar, setShowSidebar] = useState(false)
   const [books,setBooks]=useState()
   const[borrower,setBorrower]=useState()
   useEffect(() => {

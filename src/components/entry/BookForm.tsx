@@ -1,10 +1,4 @@
-"use client"
-interface BookFormProps {
-  onOpenChange: OnOpenChangeCallback;
-}
-type OnOpenChangeCallback = (newOpen: boolean) => void;
-import { FieldValues, useForm } from "react-hook-form"
-import { ChangeEvent, useState } from "react";
+import {  useForm } from "react-hook-form"
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import {z} from "zod"
@@ -27,9 +21,9 @@ const bookSchema=z.object({
 
 type TBookSchema=z.infer<typeof bookSchema>
 
-export function BookForm({onOpenChange}:BookFormProps) {
+export function BookForm() {
  
-const {register,handleSubmit,formState:{errors,isSubmitting},reset}=useForm<TBookSchema>({
+const {register,handleSubmit,formState:{errors},reset}=useForm<TBookSchema>({
   resolver:zodResolver(bookSchema)
 })
 

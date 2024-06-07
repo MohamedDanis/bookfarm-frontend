@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import React, { useEffect, useState,useCallback } from "react";
+import  { useEffect, useState,useCallback } from "react";
 import useSWR, { mutate } from "swr";
 import { addToCart, showBookDetails, showCart } from "@/api/admin/userRequests";
 import Container from "@/components/ui/container";
@@ -31,7 +31,7 @@ const BookPage = () => {
     const memoizedFetcher = useCallback(() => {
       return fetcher(id);
     }, [id, fetcher])
-    const { data, error, isLoading } = useSWR(`/api/bookDetails`, memoizedFetcher
+    const { data,  isLoading } = useSWR(`/api/bookDetails`, memoizedFetcher
   );
   console.log(data);
   

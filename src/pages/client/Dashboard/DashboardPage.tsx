@@ -14,10 +14,8 @@ import {
 } from "@/components/ui/tabs"
 import { Overview } from "@/container/user/Dashboard"
 import { RecentSales } from "@/container/user/Dashboard"
-import { useEffect, useState } from "react";
 import { showBorrowedBooks } from "@/api/admin/userRequests"
-import Container from "@/components/ui/container"
-import { Edit2Icon, EyeIcon, View } from "lucide-react"
+import { EyeIcon } from "lucide-react"
 import { Link } from "react-router-dom"
 
 
@@ -26,13 +24,12 @@ import { Link } from "react-router-dom"
 
 
 export default function DashboardPage() {
-  const {data,error,isLoading} = useSWR('/api/borrow',showBorrowedBooks)
+  const {data} = useSWR('/api/borrow',showBorrowedBooks)
   console.log(data);
-  const [user,setUser]=useState()
-  const [showSidebar, setShowSidebar] = useState(false)
-  const [books,setBooks]=useState()
-  const[borrower,setBorrower]=useState()
-  
+  // const [user,setUser]=useState()
+  // const [books,setBooks]=useState()
+  // const[borrower,setBorrower]=useState()
+ 
   return (
     <>
    
@@ -72,7 +69,7 @@ export default function DashboardPage() {
                     </svg>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold">+{books ? (books as Array<any>).length : 0}</div>
+                    {/* <div className="text-2xl font-bold">+{books ? (books as Array<any>).length : 0}</div> */}
                     {/* <p className="text-xs text-muted-foreground">
                       +20.1% from last month
                     </p> */}
@@ -99,7 +96,7 @@ export default function DashboardPage() {
                     </svg>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold">+{user ? (user as Array<any>).length : 0}</div>
+                    {/* <div className="text-2xl font-bold">+{user ? (user as Array<any>).length : 0}</div> */}
                     <p className="text-xs text-muted-foreground">
                       +180.1% from last month
                     </p>
@@ -148,7 +145,7 @@ export default function DashboardPage() {
                     </svg>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold">+{borrower ? (borrower as Array<any>).length : 0}</div>
+                    {/* <div className="text-2xl font-bold">+{borrower ? (borrower as Array<any>).length : 0}</div> */}
                     <p className="text-xs text-muted-foreground">
                       +201 since last hour
                     </p>

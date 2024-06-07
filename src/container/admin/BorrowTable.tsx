@@ -1,6 +1,3 @@
-import Table from '@/components/general/data-table/Table'
-import React from 'react'
-import { BookTable } from '.'
 
 const BorrowTable = () => {
   return (

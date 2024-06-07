@@ -1,10 +1,4 @@
 import { ChevronDownIcon } from "@radix-ui/react-icons"
-
-import {
-  Avatar,
-  AvatarFallback,
-  Avatarimg,
-} from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import {
   Card,

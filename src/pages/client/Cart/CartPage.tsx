@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuCheckboxItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -12,13 +11,12 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { BadgeIndianRupee, ChevronDown, Delete, MapIcon, Truck, XCircle } from "lucide-react";
+import {  ChevronDown, MapIcon, Truck, XCircle } from "lucide-react";
 import { CartCounter, CouponInput } from "@/container/user";
 import { useDispatch, useSelector } from "react-redux";
 import { Separator } from "@/components/ui/separator";
 import { ReadMore } from "@/components/general";
-import { setItems, setTotalPrice } from "@/redux/cartSlice";
-import { Input } from "@/components/ui/input";
+import {  setTotalPrice } from "@/redux/cartSlice";
 import { Link } from "react-router-dom";
 
 type Checked = DropdownMenuCheckboxItemProps["checked"];

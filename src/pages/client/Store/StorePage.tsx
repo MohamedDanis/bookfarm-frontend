@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Container from "@/components/ui/container";
 import { FilterComp, StarRating } from "@/container/user";
-import { useCallback, useEffect, useState } from "react";
+import {  useState } from "react";
 import { getAllBooks } from "@/api/admin/userRequests";
 import axios from "axios";
 import useSWR from "swr";
@@ -22,13 +22,10 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
-import { userApi } from "@/utils/ApiCalls";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Link } from "react-router-dom";
 
@@ -43,8 +40,6 @@ const fetcher = () => {
   };
  
 const StorePage = () => {
-    const [cartClicked, setCartClicked] = useState<boolean>(true);
-  const [products,setProducts]=useState<any>()
   const cart = useSelector((state: any) => state.carts.products);
   function commonId() {
     const productIds = cart.map((item: any) => item.productId._id);
@@ -53,7 +48,7 @@ const StorePage = () => {
     });
     return commonIds;
   }
-  const { data: quotesData, error: quotesError } = useSWR(
+  const { data: quotesData } = useSWR(
     "/api/quotes",
     fetcher
   );
@@ -64,11 +59,11 @@ const StorePage = () => {
     // setProducts(res?.data)
     // console.log(res.data);
   }
-  const { data, error, isLoading, mutate } = useSWR(
+  const { data, isLoading } = useSWR(
     "api/user/books",
     getAllBooks
   );
-  const { data: ltbooksData, error: ltbooksError } = useSWR(
+  const { data: ltbooksData } = useSWR(
     "/api/user/latest/books",latestBooks
   );
   

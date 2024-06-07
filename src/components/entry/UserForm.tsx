@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -19,20 +18,12 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { addBook,showCategories } from "@/api/admin/BookRequests";
+import { showCategories } from "@/api/admin/BookRequests";
 import { createUser } from "@/api/admin/userRequests";
-import img from "next/img";
 import { Icons } from "../general";
 
-const MAX_FILE_SIZE = 500000;
-const ACCEPTED_img_TYPES = [
-  "img/jpeg",
-  "img/jpg",
-  "img/png",
-  "img/webp",
-];
+
 const accountFormSchema = z.object({
   name: z.string().min(5, "name should be atleast 5 characters"),
   email: z.string().email("Invalid email address"),
@@ -57,12 +48,13 @@ const defaultValues: Partial<AccountFormValues> = {
 
 export function UserForm({ onOpenChange }: BookFormProps) {
   const [isLoading, setIsLoading] = useState(false);
-  const [file,setFile]=useState<string>('')
   const [genre,setGenre]=useState([])
   useEffect(() => {
     const getCategories = async()=>{
       const res = await showCategories()
       setGenre(res)
+      console.log(genre);
+      
     }
     getCategories()
   }, [])
@@ -71,12 +63,9 @@ export function UserForm({ onOpenChange }: BookFormProps) {
     resolver: zodResolver(accountFormSchema),
     defaultValues,
   });
-  const preset_key = "bookfarm";
-  const cloud_name = "djl447xw2";
 
   async function onSubmit(values: z.infer<typeof accountFormSchema>) {
     setIsLoading(true);
-    const formdata = new FormData();
     console.log(values)
     onOpenChange(false);
     toast({

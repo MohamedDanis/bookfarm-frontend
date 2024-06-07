@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate,useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {  makeSubscription, paymentOrder, userDetails } from "@/api/admin/userRequests";
-import { userDetailsProps } from "@/utils/types";
 import { useToast } from "@/components/ui/use-toast";
 import useRazorpay from "react-razorpay";
-import { RequetCard } from "@/components/general";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Container from "@/components/ui/container";
 import moment from "moment";
@@ -88,7 +86,7 @@ const UserDetailsPage = () => {
       const res12 = await initPayment(res.data);
       console.log(res12, 'after payment');
     
-      const resultSubscription = await makeSubscription(userdetails?.id);// execute both promises in parallel
+       await makeSubscription(userdetails?.id);// execute both promises in parallel
     } catch (error) {
       console.log(error);
     }

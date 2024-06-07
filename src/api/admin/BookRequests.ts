@@ -22,7 +22,7 @@ export const addBook =async (data:any) => {
    
 }
 
-export const showBookDetails =async (id:string) => {
+export const showBookDetails =async (id:any) => {
     console.log(id);
     
     const {data}= await adminApi.get(`/books/${id}`)

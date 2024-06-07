@@ -1,5 +1,5 @@
 "use client"
-import { Borrow, columns } from "./columns"
+import {  columns } from "./columns"
 import { DataTable } from "@/components/ui/datatable"
 import { useEffect, useState } from "react"
 import moment from "moment"

@@ -16,6 +16,7 @@ const AdminLayout = () => {
     
     if (!isAdmin && token) {
       console.log(token);
+      console.log(isLoading);
       
       const GetUser = async () => {
         setIsLoading(true);
