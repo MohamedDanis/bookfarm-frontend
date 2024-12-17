@@ -7,6 +7,7 @@ import { adminDetails } from '@/api/admin/adminAuthRequest';
 import { useEffect, useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import logo from "@/assets/imgs/logo-bf.png";
 type Props = {
   onMenuButtonClick(): void;
 };
@@ -51,7 +52,7 @@ const AdminHeader = (props: Props) => {
         <Bars3Icon className="h-6 w-6" />
       </button>
         <div className="relative">
-          <img src="/imgs/logo-bf.png" alt="logo" width={100} height={50}/>
+          <img src={logo} alt="logo" width={100} height={50}/>
         </div>
         {/* <MainNav className="hidden md:flex"/> */}
        

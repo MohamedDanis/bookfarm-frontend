@@ -40,10 +40,10 @@ import { CaretSortIcon } from "@radix-ui/react-icons";
 
 const MAX_FILE_SIZE = 500000;
 const ACCEPTED_img_TYPES = [
-  "img/jpeg",
-  "img/jpg",
-  "img/png",
-  "img/webp",
+  "image/jpeg",
+  "image/jpg",
+  "image/png",
+  "image/webp",
 ];
 const accountFormSchema = z.object({
   title: z.string().min(5, "bookname should be atleast 5 characters"),
@@ -59,7 +59,11 @@ const accountFormSchema = z.object({
       `Max file size is 5MB.`
     )
     .refine(
-      (files) => ACCEPTED_img_TYPES.includes(files?.[0]?.type),
+      (files) =>{
+        console.log(files?.[0]?.type,"img type");
+        
+        return ACCEPTED_img_TYPES.includes(files?.[0]?.type)
+      } ,
       ".jpg, .jpeg, .png and .webp files are accepted."
     ),
   quantity: z.string().refine((val) => !Number.isNaN(parseInt(val, 10))),

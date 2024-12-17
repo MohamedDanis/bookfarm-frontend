@@ -53,7 +53,7 @@ const BookHistory = ({ id }: any) => {
           <TableCaption>A list of book holders history</TableCaption>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[100px]"> Name</TableHead>
+              <TableHead className=""> Name</TableHead>
               <TableHead>Borrow Date</TableHead>
               <TableHead>Return Date</TableHead>
             </TableRow>

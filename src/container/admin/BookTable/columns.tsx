@@ -81,11 +81,11 @@ export type Payment = {
     },
     {
       accessorKey: "author",
-      header: () => <div className="text-right">Author</div>,
+      header: () => <div className="">Author</div>,
     },
     {
       accessorKey: "sale",
-      header: () => <div className="text-right">Sale</div>,
+      header: () => <div className="">Sale</div>,
       cell:({row})=>(
         <Switch
           checked={row.getValue("sale")}
@@ -101,7 +101,7 @@ export type Payment = {
     },
     {
       accessorKey: "availability",
-      header: () => <div className="text-right">Quantity</div>,
+      header: () => <div className="">Quantity</div>,
     },
     {
       id: "actions",

@@ -74,7 +74,7 @@ const BookDetailsPage = () => {
                       {bookDetails.availability}
                     </span>
                   </h2>
-                  <Button className="self-end flex gap-2">
+                  <Button className="self-end flex gap-2 w-fit">
                     <Link to={`/admin/books/edit/${bookDetails._id}`}>
                     <Edit2 className='w-4 h-4'/>Edit
                     </Link>

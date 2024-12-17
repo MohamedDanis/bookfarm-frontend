@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 export const userApi = axios.create({
-    baseURL: `https://bookfarm-server.onrender.com/api/users/`,
+    baseURL: `http://localhost:5001/api/users/`,
     withCredentials: true,
   });
 
  export const adminApi = axios.create({
-  baseURL: `https://bookfarm-server.onrender.com/api/su/`,
+  baseURL: `http://localhost:5001/api/su/`,
   withCredentials: true,
 });
 

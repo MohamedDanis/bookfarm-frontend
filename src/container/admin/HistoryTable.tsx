@@ -41,10 +41,10 @@ const HistoryTable = ({booksHistory}:any) => {
     
   return (
     <Table className="border my-4">
-      <TableCaption>A list of your recent invoices.</TableCaption>
+      <TableCaption>History of all borrowed books.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead className="w-[100px]">Book Name</TableHead>
+          <TableHead className="">Book Name</TableHead>
           <TableHead>Borrow Date</TableHead>
           <TableHead>Return Date</TableHead>
         </TableRow>

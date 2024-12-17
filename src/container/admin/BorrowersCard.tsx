@@ -6,8 +6,7 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 
 export function BorrowersCard({data}:any) {
-    console.log(data.length);
-    
+
     
   return (
   <div className="w-1/4 border p-4 rounded-2xl ">
@@ -30,15 +29,15 @@ export function BorrowersCard({data}:any) {
           }
           
           return (
-            <div className="flex items-center justify-between space-x-4 w-auto border p-4 rounded-xl my-4">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center justify-between space-x-4 border p-4 rounded-xl my-4">
+            <div className="flex items-center space-x-4 w-full">
               <Avatar>
                 <AvatarImage src="/avatars/01.png" />
                 <AvatarFallback>{getInitials(name)}</AvatarFallback>
               </Avatar>
-              <div>
+              <div className="overflow-hidden">
                 <p className="text-sm font-medium leading-none">{item.name}</p>
-                <p className="text-sm text-muted-foreground">{item.email}</p>
+                <p className="text-sm text-muted-foreground truncate">{item.email}</p>
               </div>
             </div>
             

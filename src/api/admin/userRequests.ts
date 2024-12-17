@@ -110,6 +110,7 @@ export const paymentOrder =async () => {
         return data
         
     } catch (error) {
+        console.log(error);
         
     }
 }

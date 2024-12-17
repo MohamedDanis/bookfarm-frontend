@@ -37,6 +37,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Input } from "@/components/ui/input";
 import { borrowBookUser, searchBook } from "@/api/admin/BookRequests";
 import Table from "@/container/admin/BorrowTable/Table";
+import { log } from "console";
 
 function calculateRemainingDays(endDate: any) {
   const end: any = new Date(endDate);
@@ -56,13 +57,15 @@ const UserDetailsPage = () => {
   const [Razorpay] = useRazorpay();
   const initPayment =async (data:any) => {    
     const options = {
-        key: "rzp_test_Zqoozg21eVRPdR",
+        key: "rzp_test_qpYoIQYLKPocP6",
         amount: data.amount,
         currency: data.currency,
         name: 'monthly subscription',
         description: "Test Transaction",
         order_id: data.id,
         handler: async (response:any) => {
+          console.log(response);
+          
             try {
                 const { data } = await adminApi.post('/payment/verify', response);
                 console.log(data);
@@ -83,7 +86,9 @@ const UserDetailsPage = () => {
   const subscribeUser = async () => {
     try {
       const res = await paymentOrder();
-      const res12 = await initPayment(res.data);
+      console.log(res);
+      
+      const res12 = await initPayment(res?.data);
       console.log(res12, 'after payment');
     
        await makeSubscription(userdetails?.id);// execute both promises in parallel
