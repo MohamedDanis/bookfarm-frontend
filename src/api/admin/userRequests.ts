@@ -38,6 +38,17 @@ export const createUser =async (data:any) => {
     }
 }
 
+export const adminCreateUser =async (data:any) => {
+    try {
+        const res = await adminApi.post('/users',data)
+        return res.data
+    } catch (error) {
+        console.log(error)
+        const response = (error as any).response
+        return response
+    }
+}
+
 
 export const showUsers = async ()=>{
     try {

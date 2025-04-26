@@ -20,7 +20,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { useEffect, useState } from "react";
 import { showCategories } from "@/api/admin/BookRequests";
-import { createUser } from "@/api/admin/userRequests";
+import { adminCreateUser, createUser } from "@/api/admin/userRequests";
 import { Icons } from "../general";
 
 
@@ -77,8 +77,8 @@ export function UserForm({ onOpenChange }: BookFormProps) {
       ),
     });
     setIsLoading(false);
-    const response = await createUser(values);
-    console.log(response.data)
+    const response = await adminCreateUser(values);
+    console.log(response)
     if(response.data){
       toast({
         variant: "destructive",
@@ -143,7 +143,7 @@ export function UserForm({ onOpenChange }: BookFormProps) {
           )}
         />
         <Button type="submit" disabled={isLoading}>
-          {isLoading ? (<Icons.Icons.spinner className="mr-2 h-4 w-4 animate-spin" />) : "Create"}
+          {isLoading ? (<Icons.Icons.spinner className="mr-2 w-4 h-4 animate-spin" />) : "Create"}
         </Button>
       </form>
     </Form>

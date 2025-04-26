@@ -57,7 +57,7 @@ const UserDetailsPage = () => {
   const [Razorpay] = useRazorpay();
   const initPayment =async (data:any) => {    
     const options = {
-        key: "rzp_test_qpYoIQYLKPocP6",
+        key: "rzp_test_R1KnSKz17gXBmL",
         amount: data.amount,
         currency: data.currency,
         name: 'monthly subscription',
@@ -154,15 +154,15 @@ console.log(id);
         userdetails ? (
           <Container className="p-4">
         <Breadcrumb terminalPath={userdetails?.name} />
-        <div className="flex md:justify-between flex-col md:flex-row">
-          <div className="flex md:flex-col md:items-start items-center gap-8 mt-6 md:w-2/3 w-full">
-            <Avatar className="h-28 w-28 md:h-36 md:w-36">
+        <div className="flex flex-col md:justify-between md:flex-row">
+          <div className="flex gap-8 items-center mt-6 w-full md:flex-col md:items-start md:w-2/3">
+            <Avatar className="w-28 h-28 md:h-36 md:w-36">
               <AvatarImage src="/imgs/avatar-image.png" />
               <AvatarFallback>MD</AvatarFallback>
             </Avatar>
-            <div className="flex gap-4 md:items-center flex-col md:flex-row justify-start items-start">
+            <div className="flex flex-col gap-4 justify-start items-start md:items-center md:flex-row">
               {userdetails ? (
-                <h1 className="text-2xl md:text-4xl font-semibold">
+                <h1 className="text-2xl font-semibold md:text-4xl">
                   {userdetails?.name}
                 </h1>
               ) : (
@@ -179,10 +179,10 @@ console.log(id);
               </div>
             </div>
           </div>
-          <div className="md:w-1/3 w-full flex justify-end flex-col">
+          <div className="flex flex-col justify-end w-full md:w-1/3">
             {userdetails?.isSubscribed && (
-              <div className="border border-black dark:border-slate-50 rounded-2xl w-full h-60 p-3 mt-6">
-                <h1 className="text-xl md:text-2xl font-bold text-center">
+              <div className="p-3 mt-6 w-full h-60 rounded-2xl border border-black dark:border-slate-50">
+                <h1 className="text-xl font-bold text-center md:text-2xl">
                   Subscription Details
                 </h1>
                 <h2 className="my-4 text-sm">
@@ -192,7 +192,7 @@ console.log(id);
                   </span>{" "}
                 </h2>
                 <div className="flex flex-col gap-4 justify-center items-center">
-                  <h1 className="text-center text-sm font-bold flex gap-2">
+                  <h1 className="flex gap-2 text-sm font-bold text-center">
                     <Clock />{" "}
                     {calculateRemainingDays(userdetails?.subscriptionEnd)} days
                     left{" "}
@@ -211,7 +211,7 @@ console.log(id);
                 </div>
               </div>
             )}
-            <div className="flex justify-evenly w-full mt-6">
+            <div className="flex justify-evenly mt-6 w-full">
               {userdetails?.isSubscribed ? (
                 <AlertDialog>
                   <AlertDialogTrigger asChild>
@@ -272,7 +272,7 @@ console.log(id);
                       searchResult.map((book: any) => {
                         if (book.availability > 0) {
                           return (
-                            <div className="my-4 flex gap-4 items-center border p-3">
+                            <div className="flex gap-4 items-center p-3 my-4 border">
                               <Input
                                 type="checkbox"
                                 className="w-4 h-4"
@@ -297,7 +297,7 @@ console.log(id);
                           );
                         } else {
                           return (
-                            <div className="my-4 flex gap-4 items-center border p-3 bg-gray-200">
+                            <div className="flex gap-4 items-center p-3 my-4 bg-gray-200 border">
                               <Input
                                 type="checkbox"
                                 disabled
@@ -324,7 +324,7 @@ console.log(id);
                         }
                       })}
                   </ScrollArea>
-                  <DialogFooter className="h-auto flex md:flex-col w-full">
+                  <DialogFooter className="flex w-full h-auto md:flex-col">
                     <h1 className="text-lg">Selected Books :</h1>
                     <div className="flex flex-col">
                       {selectedbooks.map((selectBook: any, index: any) => {
@@ -348,15 +348,15 @@ console.log(id);
           </div>
         </div>
         <Separator className="my-6" />
-        <div className="flex gap-4 md:flex-row flex-col">
+        <div className="flex flex-col gap-4 md:flex-row">
           {userdetails && <PersonalCard userdata={userdetails} />}
-          <div className="border w-2/3 p-4 rounded-2xl flex-1">
-            <h1 className="font-bold text-2xl">Borrowed Books :</h1>
+          <div className="flex-1 p-4 w-2/3 rounded-2xl border">
+            <h1 className="text-2xl font-bold">Borrowed Books :</h1>
             <Table borrowData={userdetails} />
           </div>
         </div>
-        <div className="p-4 border rounded-2xl my-6">
-          <h1 className="font-bold text-2xl">Books History :</h1>
+        <div className="p-4 my-6 rounded-2xl border">
+          <h1 className="text-2xl font-bold">Books History :</h1>
           <HistoryTable booksHistory={userdetails?.borrowHistory || []}/>
         </div>
       </Container>
