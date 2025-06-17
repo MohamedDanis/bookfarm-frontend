@@ -1,0 +1,41 @@
+name: Deploy Vite React App
+ 
+on:
+  push:
+    branches: [production]  # Trigger on pushes to the main branch
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env: 
+      VITE_APP_BACKEND_URL: "https://api.bookfarm.in"
+ 
+    steps:
+      - uses: actions/checkout@v3
+ 
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Build React app
+        run: npm run build
+ 
+      - name: Deploy to VPS using SCP
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSHKEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          source: "dist/*"  # Or "out" if using `next export`
+          target: "/home/bookfarm/bookfarm-admin"
+          
+      - name: Run command on remote
+        uses: appleboy/ssh-action@master
+        with:
+          HOST: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          KEY: ${{ secrets.SSHKEY }}
+          PASSPHRASE: ${{ secrets.PASSPHRASE }}
+          script: |
+            sudo cp -r /home/bookfarm/bookfarm-admin/dist/* /var/www/admin.bookfarm.in/
+            rm -rf /home/bookfarm/bookfarm-admin
+            sudo systemctl restart nginx
