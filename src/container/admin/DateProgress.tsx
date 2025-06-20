@@ -6,9 +6,9 @@ const DateProgress = ({endDate}:any) => {
       }
       console.log(endDate);
       
-      console.log(calculateProgressPercentage(endDate))
+      console.log(calculateProgressPercentage(20))
   return (
-    <Progress value={calculateProgressPercentage(endDate)} className="" />
+    <Progress value={calculateProgressPercentage(endDate)} className="h-2" />
   )
 }
 

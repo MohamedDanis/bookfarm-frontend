@@ -20,7 +20,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { useEffect, useState } from "react";
 import { showCategories } from "@/api/admin/BookRequests";
-import { adminCreateUser, createUser } from "@/api/admin/userRequests";
+import { adminCreateUser } from "@/api/admin/userRequests";
 import { Icons } from "../general";
 
 

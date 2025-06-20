@@ -93,35 +93,36 @@ export const columns: ColumnDef<Borrow>[] = [
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
+            <Button variant="ghost" className="p-0 w-8 h-8">
               <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
+              <MoreHorizontal className="w-4 h-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
+            {/* <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(user.id)}
             >
               Copy user ID
-            </DropdownMenuItem>
+            </DropdownMenuItem> */}
             <DropdownMenuSeparator />
-            <DropdownMenuItem asChild>
+            {/* <DropdownMenuItem asChild>
               <Link to={`users/${user.id}`}>
               View customer
               </Link>
-              </DropdownMenuItem>
+              </DropdownMenuItem> */}
             <DropdownMenuItem asChild>
             <AlertDialog>
-                <AlertDialogTrigger>Return</AlertDialogTrigger>
+                <AlertDialogTrigger className="px-2 w-full bg-red-400 text-white font-medium rounded-md focus:bg-slate-100 focus:text-slate-900 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-slate-800 dark:focus:text-slate-50">
+                  Return
+                  </AlertDialogTrigger>
                 <AlertDialogContent>
                   <AlertDialogHeader>
                     <AlertDialogTitle>
-                      Are you absolutely sure?
+                      Return Book
                     </AlertDialogTitle>
                     <AlertDialogDescription>
-                      This action cannot be undone. This will permanently delete
-                      your book and remove your book from the database.
+                      Are you sure you want to return this book?
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>

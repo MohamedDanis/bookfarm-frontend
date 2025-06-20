@@ -49,6 +49,16 @@ export const adminCreateUser =async (data:any) => {
     }
 }
 
+export const createUserWithBooks =async (data:any) => {
+    try {
+        const res = await adminApi.post('/users-with-books',data)
+        return res.data
+    } catch (error) {
+        const response = (error as any).response
+        return response
+    }
+}
+
 
 export const showUsers = async ()=>{
     try {
@@ -105,9 +115,11 @@ export const userDetails = async (id:any) => {
 }
 
 
-export const makeSubscription = async (id:any) => {
+export const makeSubscription = async (id:any,dateData:any) => {
     try {
-        const {data} = await adminApi.post(`/subcribes/${id}`)
+        const {data} = await adminApi.post(`/subcribes/${id}`,{
+            data:dateData
+        })
         return data
     } catch (error) {
         const response = (error as any).response

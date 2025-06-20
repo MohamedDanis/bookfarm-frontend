@@ -1,13 +1,12 @@
 import axios from 'axios';
 
 export const userApi = axios.create({
-    baseURL: `http://localhost:5001/api/users/`,
+    baseURL: `${import.meta.env.VITE_APP_BACKEND_URL}/api/users/`,
     withCredentials: true,
   });
 
  export const adminApi = axios.create({
-  baseURL: `http://localhost:5001/api/su/`,
+  baseURL: `${import.meta.env.VITE_APP_BACKEND_URL}/api/su/`,
   withCredentials: true,
 });
 
-console.log(import.meta.env.VITE_APP_BACKEND_URL);
