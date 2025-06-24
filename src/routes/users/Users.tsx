@@ -22,7 +22,7 @@ const Users = () => {
         <Route index element={<LandingPage />} />
         <Route path='/pricings' element={<PricingPage/>}/>
         <Route path='/store' element={<StorePage/>}/>
-        <Route path='/store/:id' element={<BookPage/>}/>
+        <Route path='/store/:id' element={<BookPage/>}/>                                
         <Route path="/cart" element={<CartPage/>}/>
         <Route path="/checkout" element={<CheckoutPage/>}/>
         <Route path='/success' element={<SuccessPage/>}/>

@@ -9,11 +9,14 @@ import LoginPage from '@/pages/admin/Login/LoginPage'
 import OrderPage from '@/pages/admin/Orders/OrderPage'
 import DetailedPage from '@/pages/admin/User/DetailedPage'
 import UserPage from '@/pages/admin/User/UserPage'
-
-
-import { Route, Routes } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 const Admin = () => {
+  const token = localStorage.getItem("accessToken");
+  const admin = useSelector((state:any)=> state.admin)
+  console.log(admin.user);
+  
   return (
     <Routes>
     <Route path='/' element={<AdminLayout/>}>
@@ -28,6 +31,13 @@ const Admin = () => {
         <Route path='/orders' element={<OrderPage/>}/>
     </Route>
      <Route path='/login' element={<LoginPage/>}/>
+     {
+      token ? (
+        <Route path='/' element={<Navigate to='/dashboard'/>}/>
+      ):(
+        <Route path='/' element={<Navigate to='/login'/>}/>
+      )
+     }
      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )

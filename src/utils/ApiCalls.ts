@@ -8,5 +8,6 @@ export const userApi = axios.create({
  export const adminApi = axios.create({
   baseURL: `${import.meta.env.VITE_APP_BACKEND_URL}/api/su/`,
   withCredentials: true,
+  
 });
 

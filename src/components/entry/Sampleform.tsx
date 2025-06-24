@@ -32,7 +32,6 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { addBook,showCategories } from "@/api/admin/BookRequests";
 import { CheckIcon } from "lucide-react";
@@ -96,33 +95,31 @@ export function SampleForm({ onOpenChange }: BookFormProps) {
     resolver: zodResolver(accountFormSchema),
     defaultValues,
   });
-  const preset_key = "bookfarm";
-  const cloud_name = "djl447xw2";
 
   async function onSubmit(values: z.infer<typeof accountFormSchema>) {
     setIsLoading(true);
-    const formdata = new FormData();
-    formdata.append("file", values.bookcover[0]);
-    console.log(formdata.get("file"),"img");
     
-    formdata.append("upload_preset", preset_key);
-    const folderPath = "book-cover/";
-    formdata.append("folder", folderPath);
-    console.log(formdata);
-    const getPhoto = async () => {
-      const url = await axios.post(
-        `https://api.cloudinary.com/v1_1/${cloud_name}/img/upload`,
-        formdata
-      );
-      return url;
-    };
-    const coverbook = await getPhoto();
+    // formdata.append("file", values.bookcover[0]);
+    // console.log(formdata.get("file"),"img");
+    
+    // formdata.append("upload_preset", preset_key);
+    // const folderPath = "book-cover/";
+    // formdata.append("folder", folderPath);
+    // console.log(formdata);
+    // const getPhoto = async () => {
+    //   const url = await axios.post(
+    //     `https://api.cloudinary.com/v1_1/${cloud_name}/img/upload`,
+    //     formdata
+    //   );
+    //   return url;
+    // };
+    // const coverbook = await getPhoto();
     const newObj = {
-      bookname: values.title,
-      bookauthor: values.author,
-      bookgenre:values.genre,
-      bookcover: coverbook.data.secure_url,
-      bookquantity: values.quantity,
+      title: values.title,
+      author: values.author,
+      genre:values.genre,
+      bookcover: values.bookcover[0],
+      availability: values.quantity,
     };
     onOpenChange(false);
     toast({
@@ -192,7 +189,7 @@ export function SampleForm({ onOpenChange }: BookFormProps) {
                        {field.value && field.value.length > 0
                         ? `${field.value.length} genre selected`
                         : "Select Category"}
-                      <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                      <CaretSortIcon className="ml-2 w-4 h-4 opacity-50 shrink-0" />
                     </Button>
                   </FormControl>
                 </PopoverTrigger>
