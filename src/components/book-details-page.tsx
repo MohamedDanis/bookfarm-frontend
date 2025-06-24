@@ -35,7 +35,6 @@ export default function Component() {
           }
           if(id===undefined){
             console.log('fetching data');
-
           }else{
             getBookDetails()
           }
@@ -65,11 +64,7 @@ export default function Component() {
     };
     getHistory()
   }, []);
-  console.log(bookDetails,'bok');
-  console.log(borrower);
   
-  console.log(borrower[0].borrow.find((item:any)=>item.book==id));
-  console.log(bookHistory);
   // const returnBook = async(id:string,userid:string)=>{
   //       console.log(userid);
   //       await returnBookUser(id,userid)
@@ -115,7 +110,7 @@ export default function Component() {
                 </Link>
               </Button>
               <Separator orientation="vertical" className="h-6" />
-              <div className="text-sm text-muted-foreground">Admin / Books / The Alchemist</div>
+              <div className="text-sm text-muted-foreground">Admin / Books / {bookDetails?.title}</div>
             </div>
             <div className="flex items-center space-x-2">
               <Button variant="outline" size="sm">
@@ -141,7 +136,7 @@ export default function Component() {
                 <div className="text-center">
                   <div className="relative mx-auto mb-4 w-48 h-64">
                     <img
-                     src={bookDetails?.coverimage}
+                     src={`${import.meta.env.VITE_APP_BACKEND_URL}/${bookDetails?.coverimage}`}
                       alt="The Alchemist book cover"
                       className="object-cover rounded-lg shadow-lg"
                     />

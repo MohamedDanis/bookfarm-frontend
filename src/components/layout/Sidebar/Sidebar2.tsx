@@ -46,9 +46,9 @@ const Sidebar = ({ open, setOpen }: Props) => {
         ref={ref}
       >
 
-        <nav className="md:sticky top-0 md:top-24">
+        <nav className="top-0 md:sticky md:top-24">
           {/* nav items */}
-          <ul className="py-2 flex flex-col gap-2">
+          <ul className="flex flex-col gap-2 py-2">
             {/* {navItems.map((item, index) => {
               console.log(item.label);
               console.log(pathname,item.label);
@@ -90,17 +90,27 @@ const Sidebar = ({ open, setOpen }: Props) => {
               </Link>
             </li>
             <li>
-              <Link to='/admin/requests' className={`text-green-900 hover:bg-green-900 hover:text-white ${pathname?.includes('requests') && 'bg-green-900 text-white'} transition-colors duration-300 rounded-md p-2 mx-2 flex gap-4 items-center`}>
-              <ChatBubbleBottomCenterTextIcon className="w-6 h-6"/> Book Requests
+              <Link 
+                to='/admin/requests' 
+                onClick={(e) => e.preventDefault()}
+                className={`text-gray-400 cursor-not-allowed ${pathname?.includes('requests') && 'bg-gray-200'} transition-colors duration-300 rounded-md p-2 mx-2 flex gap-4 items-center`}
+              >
+                <ChatBubbleBottomCenterTextIcon className="w-6 h-6 opacity-50"/> 
+                <span>Book Requests</span>
               </Link>
             </li>
             <li>
-              <Link to='/admin/requests' className={`text-green-900 hover:bg-green-900 hover:text-white ${pathname?.includes('events') && 'bg-green-900 text-white'} transition-colors duration-300 rounded-md p-2 mx-2 flex gap-4 items-center`}>
-              <CalendarIcon className="w-6 h-6" /> Events
+              <Link 
+                to='/admin/events' 
+                onClick={(e) => e.preventDefault()}
+                className={`text-gray-400 cursor-not-allowed ${pathname?.includes('events') && 'bg-gray-200'} transition-colors duration-300 rounded-md p-2 mx-2 flex gap-4 items-center`}
+              >
+                <CalendarIcon className="w-6 h-6 opacity-50"/> 
+                <span>Events</span>
               </Link>
             </li>
           </ul>
-          <h1 className="text-slate-800 font-medium text-xl mx-2 mb-2">Ecommerce</h1>
+          <h1 className="mx-2 mb-2 text-xl font-medium text-slate-800">Ecommerce</h1>
           <ul>
             <li>
               <Link to='/admin/orders' className={`text-green-900 hover:bg-green-900 hover:text-white ${pathname?.includes('orders') && 'bg-green-900 text-white'} transition-colors duration-300 rounded-md p-2 mx-2 flex gap-4 items-center`}>
@@ -108,8 +118,13 @@ const Sidebar = ({ open, setOpen }: Props) => {
               </Link>
             </li>
             <li>
-              <Link to='/admin/coupons' className={`text-green-900 hover:bg-green-900 ${pathname?.includes('coupons') && 'bg-green-900 text-white'}  hover:text-white transition-colors duration-300 rounded-md p-2 mx-2 flex gap-4 items-center`}>
-               <Ticket/> Coupons
+              <Link 
+                to='/admin/coupons' 
+                onClick={(e) => e.preventDefault()}
+                className={`text-gray-400 cursor-not-allowed ${pathname?.includes('coupons') && 'bg-gray-200'}  transition-colors duration-300 rounded-md p-2 mx-2 flex gap-4 items-center`}
+              >
+                <Ticket className="opacity-50"/> 
+                <span>Coupons</span>
               </Link>
             </li>
           </ul>
