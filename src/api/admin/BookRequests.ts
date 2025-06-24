@@ -12,8 +12,14 @@ export const showBooks = async()=>{
 }
 
 export const addBook =async (data:any) => {
+    console.log(data,'sdfgh');
+    
     try {
-        const res =  await adminApi.post('/books',{data})
+        const res = await adminApi.post('/books',data, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
         return res.data;
     } catch (error) {
         const response = (error as any).response;

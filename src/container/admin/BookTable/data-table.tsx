@@ -48,8 +48,6 @@ export function DataTable<TData, TValue>({
     getFilteredRowModel: getFilteredRowModel(),
     onRowSelectionChange: setRowSelection,
     getSortedRowModel: getSortedRowModel(),
-    manualPagination:true,
-    pageCount:10,
     state: {
       sorting,
       columnFilters,
@@ -113,7 +111,7 @@ export function DataTable<TData, TValue>({
         </TableBody>
       </Table>
     </div>
-    <div className="flex items-center justify-end space-x-2 py-4">
+    <div className="flex justify-end items-center py-4 space-x-2">
         <Button
           variant="outline"
           size="sm"
